@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "DATABASE_URL": "postgresql://user:password@localhost:5432/mydatabase",
+    "AWS_S3_BUCKET": "your-s3-bucket"
+  }
+}

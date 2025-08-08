@@ -1,0 +1,46 @@
+/* Utility styles */
+
+/* Flex utilities */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+/* Margin utilities */
+.m-1 {
+  @apply m-1;
+}
+
+.m-2 {
+  @apply m-2;
+}
+
+/* Padding utilities */
+.p-1 {
+  @apply p-1;
+}
+
+.p-2 {
+  @apply p-2;
+}
+
+/* Text utilities */
+.text-center {
+  @apply text-center;
+}
+
+.text-right {
+  @apply text-right;
+}
+
+/* Display utilities */
+.hidden {
+  @apply hidden;
+}
+
+.block {
+  @apply block;
+}

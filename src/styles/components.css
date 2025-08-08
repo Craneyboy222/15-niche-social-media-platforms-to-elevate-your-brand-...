@@ -1,0 +1,67 @@
+/* Component styles */
+
+/* Header styles */
+.header {
+  @apply bg-white shadow-md;
+  height: 60px;
+  @apply flex items-center justify-between px-4;
+}
+
+.header-logo {
+  @apply text-xl font-bold;
+}
+
+.navbar {
+  @apply flex items-center space-x-4;
+}
+
+/* Card component styles */
+.card {
+  @apply bg-white shadow-lg rounded-lg overflow-hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  @apply bg-gray-200 p-4 font-semibold;
+}
+
+.card-body {
+  @apply p-4;
+}
+
+.card-footer {
+  @apply bg-gray-100 p-4;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700;
+}
+
+/* Modal styles */
+.modal {
+  @apply fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center;
+  z-index: 50;
+}
+
+.modal-content {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal-header, .modal-footer {
+  @apply p-4 bg-gray-100;
+}
+
+.modal-body {
+  @apply p-4;
+}

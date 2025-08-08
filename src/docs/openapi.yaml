@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Enterprise Application API
+  version: 1.0.0
+  description: This is the OpenAPI specification for the enterprise application.
+servers:
+  - url: https://api.example.com/v1
+    description: Production server
+paths:
+  /api/users:
+    get:
+      summary: Retrieve user list
+      responses:
+        '200':
+          description: A list of users.
+    post:
+      summary: Create new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: User created successfully.
+  /api/auth/login:
+    post:
+      summary: User login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: User logged in successfully.
+  /api/snaps:
+    post:
+      summary: Upload a new snap
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Snap uploaded successfully.
+    get:
+      summary: Retrieve a specific snap
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Snap details retrieved successfully.
+  /api/chats:
+    get:
+      summary: Retrieve chat history
+      responses:
+        '200':
+          description: List of chat messages.
+    post:
+      summary: Send a new message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                receiverId:
+                  type: integer
+      responses:
+        '201':
+          description: Message sent successfully.
+  /api/stories:
+    get:
+      summary: Retrieve user stories
+      responses:
+        '200':
+          description: List of user stories.
+    post:
+      summary: Upload a new story
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Story uploaded successfully.

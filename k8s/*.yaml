@@ -1,0 +1,57 @@
+/*
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enterprise-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: enterprise-app
+  template:
+    metadata:
+      labels:
+        app: enterprise-app
+    spec:
+      containers:
+      - name: frontend
+        image: my-registry/frontend:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: NODE_ENV
+          value: production
+      - name: backend
+        image: my-registry/backend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DATABASE_URL
+          value: postgresql://username:password@postgres-service:5432/mydb
+      - name: redis
+        image: redis:5.0-alpine
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: enterprise-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: enterprise-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+*/

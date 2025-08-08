@@ -1,0 +1,41 @@
+/* Theme styles */
+
+:root {
+  --primary-color: #1f2937;
+  --secondary-color: #3b82f6;
+  --accent-color: #f43f5e;
+  --neutral-color: #9ca3af;
+  --bg-color: #f9fafb;
+}
+
+[data-theme='dark'] {
+  --primary-color: #f9fafb;
+  --secondary-color: #3b82f6;
+  --accent-color: #f43f5e;
+  --neutral-color: #d1d5db;
+  --bg-color: #1f2937;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.header, .footer {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.text-neutral {
+  color: var(--neutral-color);
+}

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s3-proxy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: s3-proxy
+  template:
+    metadata:
+      labels:
+        app: s3-proxy
+    spec:
+      containers:
+      - name: s3-proxy
+        image: myregistry.com/s3-proxy:latest
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret
+              key: accesskeyid
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret
+              key: secretaccesskey
+        - name: S3_BUCKET
+          value: my-s3-bucket
